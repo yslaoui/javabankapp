@@ -17,7 +17,7 @@ public abstract class Account {
         this.ssn = ssn;
         this.balance = initialDeposit;
         setAccountNumber();
-        System.out.println("NAME: " + this.name + " SSN: " + this.ssn + " BALANCE: $" + this.balance);
+        showInfo();
     }
 //    Common methods
     private void setAccountNumber() {
@@ -26,8 +26,11 @@ public abstract class Account {
         int randomNumber = (int)  (Math.random()*1000);
         this.account_number = lastSsn + id + randomNumber;
     }
-    
 
-
+    public void showInfo() {
+        System.out.println("NAME: " + this.name);
+        System.out.println("ACCOUNT NUMBER " + this.account_number);
+        System.out.println("BALANCE: " + this.balance);
+    }
 }
 
