@@ -17,7 +17,7 @@ public abstract class Account {
         this.ssn = ssn;
         this.balance = initialDeposit;
         setAccountNumber();
-        showInfo();
+        setRate();
     }
 //    Common methods
     private void setAccountNumber() {
@@ -28,9 +28,43 @@ public abstract class Account {
     }
 
     public void showInfo() {
+        System.out.println("********************");
         System.out.println("NAME: " + this.name);
         System.out.println("ACCOUNT NUMBER " + this.account_number);
         System.out.println("BALANCE: " + this.balance);
     }
+
+    public abstract void setRate();
+
+    public void deposit(double amount) {
+        System.out.println("Depositing " + amount + "$");
+        this.balance += amount;
+        this.printBalance();
+    }
+
+    public void withdraw(double amount) {
+        System.out.println("Withdrawing " + amount + "$");
+        this.balance -= amount;
+        this.printBalance();
+    }
+
+    public void transfer(double amount, String destination) {
+        System.out.println("Transfering " + amount + "$");
+        this.balance -= amount;
+        System.out.println("Transfer of " + amount + "$ to " + destination + "successful");
+        this.printBalance();
+    }
+
+    public void printBalance() {
+        System.out.println("Current Balance  " + this.balance);
+    }
+    public void compound() {
+        double accruedInterest = this.rate * this.balance / 100;
+        this.balance += accruedInterest;
+        System.out.println("ACCRUED INTEREST: " + accruedInterest);
+        this.printBalance();
+    }
+
+
 }
 
