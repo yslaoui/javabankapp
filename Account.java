@@ -1,14 +1,14 @@
-package bankaccountapp;
+package javabankapp;
 
 public abstract class Account {
 
  //   List common properties for the checking and savings subclasses
-    String name;
-    String ssn;
-    double balance;
-    String account_number;
-    double rate;
-    static int id = 10000;
+    private String name;
+    private String ssn;
+    private double balance;
+    protected String account_number;
+    protected double rate;
+    private static int id = 10000;
 
 
 //    Constructor to initialize these properties
@@ -51,7 +51,7 @@ public abstract class Account {
     public void transfer(double amount, String destination) {
         System.out.println("Transfering " + amount + "$");
         this.balance -= amount;
-        System.out.println("Transfer of " + amount + "$ to " + destination + "successful");
+        System.out.println("Transfer of " + amount + "$ to " + destination + " successful");
         this.printBalance();
     }
 

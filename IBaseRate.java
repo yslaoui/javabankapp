@@ -1,4 +1,4 @@
-package bankaccountapp;
+package javabankapp;
 
 public interface IBaseRate {
 
