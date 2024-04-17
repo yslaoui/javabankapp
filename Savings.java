@@ -3,8 +3,8 @@ package javabankapp;
 public class Savings extends Account {
 
 //    List properties specific to the savings account.
-    private int safetyDepositBoxId;
-    private int safetyDepositBoxKey;
+    private long safetyDepositBoxId;
+    private long safetyDepositBoxKey;
     private int safetyDepositBoxIdDigits = 3;
     private int safetyDepositBoxKeyDigits = 4;
 //    constructor to initialize the savings properties
@@ -13,6 +13,7 @@ public class Savings extends Account {
     public Savings(String name, String ssn, double initialDeposit) {
       super(name, ssn, initialDeposit);
       this.account_number = "2" + this.account_number;
+      this.setDepositBox();
     }
 
     @Override
@@ -27,16 +28,12 @@ public class Savings extends Account {
     }
 
     public void setDepositBox() {
-        this.safetyDepositBoxId =  (int) (Math.pow(10,safetyDepositBoxIdDigits-1) +  Math.random()*(Math.pow(10,safetyDepositBoxIdDigits)-Math.pow(10,safetyDepositBoxIdDigits-1)));
-        this.safetyDepositBoxKey = (int) (Math.pow(10,safetyDepositBoxKeyDigits-1) + Math.random()*(Math.pow(10,safetyDepositBoxKeyDigits)-Math.pow(10,safetyDepositBoxKeyDigits-1)));
+        this.safetyDepositBoxId =  (long) (Math.pow(10,safetyDepositBoxIdDigits-1) +  Math.random()*(Math.pow(10,safetyDepositBoxIdDigits)-Math.pow(10,safetyDepositBoxIdDigits-1)));
+        this.safetyDepositBoxKey = (long) (Math.pow(10,safetyDepositBoxKeyDigits-1) + Math.random()*(Math.pow(10,safetyDepositBoxKeyDigits)-Math.pow(10,safetyDepositBoxKeyDigits-1)));
     }
     public void setRate() {
         this.rate = IBaseRate.getBaseRate() - 0.25;
     }
-
-
-
-
 }
 
 

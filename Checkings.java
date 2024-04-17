@@ -11,6 +11,7 @@ public class Checkings extends Account {
     public Checkings(String name, String ssn, double initialDeposit) {
         super(name, ssn, initialDeposit);
         this.account_number = "1" + this.account_number;
+        this.setDebitCard();
 //        System.out.println("ACCOUNT NUMBER: " + this.account_number);
 //        System.out.println("NEW CHECKING ACCOUNT ");
     }
